@@ -45,7 +45,7 @@
     <Compile Include="devices\Windows10.cs" />
     <Compile Include="GameDevice.cs" />
     <Compile Include="IGameDeviceBasics.cs" />
-    <Compile Include="IGameDeviceHWEventListener.cs" />
+    <Compile Include="GameDeviceHWEventListener.cs" />
     <Compile Include="JoshGameLibrary20.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenColor.cs" />

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace JoshGameLibrary20
 {
-    public interface IGameDeviceHWEventListener
+    public class GameDeviceHWEventListener
     {
+        public virtual void OnEvent(GameDevice device, int evt, Object data)
+        {
+
+        }
     }
 }

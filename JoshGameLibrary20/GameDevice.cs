@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 
 namespace JoshGameLibrary20
 {
@@ -274,8 +275,8 @@ namespace JoshGameLibrary20
             mFileState[index] = SCREENSHOT_CLOSED;
             
             // sleep a waiting time for screenshot truly ready
-            //Thread.sleep(getWaitTransactionTimeMs());
-            
+            Thread.Sleep(GetWaitTransactionTimeMs());
+
             return SCREENSHOT_NO_ERROR;
         }
 
@@ -499,7 +500,7 @@ namespace JoshGameLibrary20
             return mLogger;
         }
         
-        public int RegisterHardwareEvent(int hardwareType, IGameDeviceHWEventListener el)
+        public int RegisterHardwareEvent(int hardwareType, GameDeviceHWEventListener el)
         {
             if (mDeviceInterface == null)
                 throw new Exception("Fatal exception that device interface is null");
@@ -518,7 +519,7 @@ namespace JoshGameLibrary20
             return -1;
         }
         
-        public int DeregisterHardwareEvent(int hardwareType, IGameDeviceHWEventListener el)
+        public int DeregisterHardwareEvent(int hardwareType, GameDeviceHWEventListener el)
         {
             if (mDeviceInterface == null)
                 throw new Exception("Fatal exception that device interface is null");
@@ -550,10 +551,7 @@ namespace JoshGameLibrary20
 
             public Logger(GameDevice device)
             {
-                if (device == null)
-                    throw new Exception("Logger: initial with null GameDevice");
-
-                mDevice = device;
+                mDevice = device ?? throw new Exception("Logger: initial with null GameDevice");
             }
 
             public void D(String tag, String msg)

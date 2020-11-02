@@ -120,11 +120,11 @@ namespace JoshGameLibrary20
          * register vibrator event such as on, off
          * @return 0 upon success or
          */
-        int RegisterEvent(int type, IGameDeviceHWEventListener el);
+        int RegisterEvent(int type, GameDeviceHWEventListener el);
 
         /**
          * deregister vibrator event use the same listener object
          */
-        int DeregisterEvent(int type, IGameDeviceHWEventListener el);
+        int DeregisterEvent(int type, GameDeviceHWEventListener el);
     }
 }
